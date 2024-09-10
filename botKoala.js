@@ -76,6 +76,8 @@ bot.hears(xLinkRegex, (ctx) => {
             }
     });
 
+bot.hears('.status', (ctx) => ctx.reply('Sigo hosteado correctamente!'));
+
 // bot.hears(igLinkRegex,(ctx) => {
 //     const igLinkUser = ctx.message.text;
 //     const igLinkFinal = igLinkUser.replace('https://www.instagram.com/', 'https://ddinstagram.com/')

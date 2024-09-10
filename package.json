@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "punycode": "^2.3.1",
-    "telegraf": "^4.16.3"
+    "telegraf": "^4.16.3",
+    "telegramkoalabot": "file:"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
