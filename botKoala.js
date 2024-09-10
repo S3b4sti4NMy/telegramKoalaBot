@@ -1,6 +1,8 @@
 import { Telegraf } from 'telegraf';
 
 const bot = new Telegraf('7502633153:AAFE2zWHg_p835C_y1NkMYuho1Q9ael-fX0');
+import keepAlive from './keep_alive.js';
+keepAlive();
 
 // Expresiones Regulares
 const tktShortRegex = /https:\/\/vm\.tiktok\.com\/.*/;

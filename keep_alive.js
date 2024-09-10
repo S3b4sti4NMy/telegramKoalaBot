@@ -1,6 +1,12 @@
-var http = require('node:http')
+import http from 'node:http';
 
-http.createServer(function (req, res){
-  res.write("toy joya");
-  res.end();
-}).listen(30000)
+function keepAlive() {
+  http.createServer(function (req, res) {
+    res.write("toy joya");
+    res.end();
+  }).listen(30000, () => {
+    console.log('Server is running on port 30000');
+  });
+}
+
+export default keepAlive;
