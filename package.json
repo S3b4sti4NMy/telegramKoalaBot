@@ -1,0 +1,18 @@
+{
+  "name": "telegramkoalabot",
+  "version": "1.0.0",
+  "description": "Este bot personalizado para Telegram ha sido diseñado para mejorar la experiencia de compartir enlaces de videos de Twitter, Instagram y TikTok en tu servidor. Con funcionalidades especializadas, el bot transforma automáticamente los enlaces de Twitter, Instagram y TikTok en elegantes embeds, proporcionando una visualización más atractiva y organizada de la información.",
+  "main": "botKoala.js",
+  "scripts": {
+    "dev": "nodemon botKoala.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
