@@ -96,6 +96,7 @@ bot.hears(igLinkRegex,(ctx) => {
     }
 });
 
+// Confirmacion de que el bot sigue hosteado
 bot.hears('.status', (ctx) => ctx.reply('Sigo hosteado correctamente!'));
 
 bot.launch();
