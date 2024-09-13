@@ -10,7 +10,7 @@ const tktLongRegex = /https:\/\/www\.tiktok\.com\/.*/;
 const xLinkRegex = /https:\/\/x\.com\/.*/;
 const igLinkRegex = /https:\/\/www\.instagram\.com\/.*/;
 
-// Codigo funcionalidad del Bot
+// Codigo funcionalidades del Bot
 bot.hears(tktShortRegex, (ctx) => {
     const tktShortUser = ctx.message.text;
     const tktShortFinal = tktShortUser.replace('https://vm.tiktok.com/', 'https://vm.vxtiktok.com/');
@@ -52,7 +52,7 @@ bot.hears(tktLongRegex, (ctx) => {
                         .catch((err) =>
                             ctx.reply('Error al eliminar el mensaje.', err));
             }
-    });
+});
 
 bot.hears(xLinkRegex, (ctx) => {
     const xLinkUser = ctx.message.text;
@@ -74,7 +74,7 @@ bot.hears(xLinkRegex, (ctx) => {
                         .catch((err) =>
                             ctx.reply('Error al eliminar el mensaje.', err));
             }
-    });
+});
 
 bot.hears(igLinkRegex,(ctx) => {
     const igLinkUser = ctx.message.text;
