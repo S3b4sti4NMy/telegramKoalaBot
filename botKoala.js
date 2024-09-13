@@ -8,7 +8,7 @@ keepAlive();
 const tktShortRegex = /https:\/\/vm\.tiktok\.com\/.*/;
 const tktLongRegex = /https:\/\/www\.tiktok\.com\/.*/;
 const xLinkRegex = /https:\/\/x\.com\/.*/;
-// const igLinkRegex = /https:\/\/www\.instagram\.com\/.*/;
+const igLinkRegex = /https:\/\/www\.instagram\.com\/.*/;
 
 // Codigo funcionalidad del Bot
 bot.hears(tktShortRegex, (ctx) => {
@@ -31,7 +31,7 @@ bot.hears(tktShortRegex, (ctx) => {
                             ctx.reply('Error al eliminar el mensaje.', err));
             }
 
-    });
+});
 
 bot.hears(tktLongRegex, (ctx) => {
     const tktLongUser = ctx.message.text;
@@ -76,11 +76,26 @@ bot.hears(xLinkRegex, (ctx) => {
             }
     });
 
-bot.hears('.status', (ctx) => ctx.reply('Sigo hosteado correctamente!'));
+bot.hears(igLinkRegex,(ctx) => {
+    const igLinkUser = ctx.message.text;
+    const igLinkFinal = igLinkUser.replace('https://www.instagram.com/', 'https://ddinstagram.com/')
+    const chatId = ctx.message.chat.id;
+    const messageId = ctx.message.message_id
+    const chatType = ctx.chat.type;
+    if (chatType === 'private') {
+        ctx.reply(igLinkFinal);
+    } else {
+        const userName = ctx.from.username;
+                const nameToShow = userName ? `${userName}` : ctx.from.first_name;
+                    ctx.telegram.deleteMessage(chatId, messageId)
+                        .then(() => {
+                            ctx.reply(`Mensaje enviado por: ${nameToShow}\n ${igLinkFinal}`);
+                        })
+                        .catch((err) =>
+                            ctx.reply('Error al eliminar el mensaje.', err));
+    }
+});
 
-// bot.hears(igLinkRegex,(ctx) => {
-//     const igLinkUser = ctx.message.text;
-//     const igLinkFinal = igLinkUser.replace('https://www.instagram.com/', 'https://ddinstagram.com/')
-//     ctx.reply(igLinkFinal)});
+bot.hears('.status', (ctx) => ctx.reply('Sigo hosteado correctamente!'));
 
 bot.launch();
