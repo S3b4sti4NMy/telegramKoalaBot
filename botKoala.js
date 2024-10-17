@@ -169,8 +169,6 @@ const sendDolarBlue = async () => {
     }
 };
 
-sendDolarBlue();
-
 bot.hears('.dolar', async (ctx) => {
     const dolarBlue = await getDolarBlue();
     if (dolarBlue) {
