@@ -102,27 +102,27 @@ bot.hears(xLinkRegex, (ctx) => {
 // });
 
 // Función para acortar enlaces utilizando Bitly API
-const shortenUrl = async (longUrl) => {
-    const bitlyApiUrl = 'https://api-ssl.bitly.com/v4/shorten';
+// const shortenUrl = async (longUrl) => {
+//     const bitlyApiUrl = 'https://api-ssl.bitly.com/v4/shorten';
 
-    try {
-        const response = await axios.post(bitlyApiUrl, 
-            {
-                long_url: longUrl
-            }, 
-            {
-                headers: {
-                    'Authorization': `Bearer ${BITLY_ACCESS_TOKEN}`,
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
-        return response.data.link;
-    } catch (error) {
-        console.error('Error al acortar el enlace:', error.response ? error.response.data : error.message);
-        return longUrl;
-    }
-};
+//     try {
+//         const response = await axios.post(bitlyApiUrl, 
+//             {
+//                 long_url: longUrl
+//             }, 
+//             {
+//                 headers: {
+//                     'Authorization': `Bearer ${BITLY_ACCESS_TOKEN}`,
+//                     'Content-Type': 'application/json'
+//                 }
+//             }
+//         );
+//         return response.data.link;
+//     } catch (error) {
+//         console.error('Error al acortar el enlace:', error.response ? error.response.data : error.message);
+//         return longUrl;
+//     }
+// };
 
 bot.hears(igLinkRegex, async (ctx) => {
     const igLinkUser = ctx.message.text;
@@ -137,10 +137,10 @@ bot.hears(igLinkRegex, async (ctx) => {
         const longUrl = response.data.data.videoUrl;
 
         // Acortar el enlace usando la función shortenUrl con Bitly
-        const shortUrl = await shortenUrl(longUrl);
+        // const shortUrl = await shortenUrl(longUrl);
 
         ctx.telegram.deleteMessage(chatId, messageId);
-        ctx.reply(`Mensaje enviado por: ${nameToShow} ` + shortUrl);
+        ctx.reply(`Mensaje enviado por: ${nameToShow} ` + longUrl);
 
     } catch (error) {
         ctx.reply('No es un reel', error);
