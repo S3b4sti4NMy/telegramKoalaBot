@@ -1,0 +1,10 @@
+services:
+  - type: cron
+    name: SendDollarJob
+    schedule: "0 10 * * *"  # Este cron ejecuta a las 10:00 AM cada día
+    command: "node botKoala.js"   # Comando que se ejecutará
+    envVars:
+      - key: TOKEN       # Variable de entorno para el token del bot
+        fromDatabase: true    # Usa las variables configuradas en Render
+      - key: TELEGRAM_CHAT_ID # Variable de entorno para el chat ID
+        fromDatabase: true    # Usa las variables configuradas en Render
