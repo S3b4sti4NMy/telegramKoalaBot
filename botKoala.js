@@ -1,10 +1,10 @@
 import { Telegraf } from 'telegraf';
 
-const bot = new Telegraf('7502633153:AAFE2zWHg_p835C_y1NkMYuho1Q9ael-fX0');
+const bot = new Telegraf(process.env.TOKEN);
 import keepAlive from './keep_alive.js';
 import axios from 'axios';
 import cron from 'node-cron';
-require('dotenv').config();
+import dotenv from 'dotenv';
 keepAlive();
 
 // Expresiones Regulares
@@ -181,6 +181,6 @@ bot.hears('.dolar', async (ctx) => {
 });
 
 // Confirmacion de que el bot sigue hosteado
-bot.hears('.status', (ctx) => ctx.reply('Sigo hosteado correctamente por Seba!'));
+bot.hears('.status', (ctx) => ctx.reply('Sigo hosteado correctamente'));
 
 bot.launch();
